@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#\n# This is the user-interface definition of a Shiny web application. You can\n# run the application by clicking 'Run App' above.\n#\n# Find out more about building applications with Shiny here:\n# \n#    http://shiny.rstudio.com/\n#\n\nlibrary(shiny)\nlibrary(shinydashboard)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(plotly)\n\ndashboardPage(skin = \"green\",\n  dashboardHeader(title=\"Tourism in Mexico\"), \n  dashboardSidebar(\n    sidebarMenu(\n      menuItem(\"Tourist Activity\", tabName = \"activity\", icon=icon(\"camera\", lib = \"glyphicon\")), \n      menuItem(\"Economic Indicators\", tabName = \"economic\", icon=icon(\"area-chart\")), \n      menuItem(\"Maps\", tabName = \"maps\", icon=icon(\"map\")), \n      selectInput(\"year\", label = \"Select Year\", choices=c('2015','2016'), selected='2015')\n    )\n  ), \n  dashboardBody(\n    tabItems(\n      tabItem(\n        tabName = \"activity\",\n        fluidRow(\n          tabBox(\n            title= \"Ocupation\",\n            tabPanel(\"Absolute\", plotlyOutput(\"boxPlots\"))\n            , tabPanel(\"Relative\", plotlyOutput(\"pctChart\"))  \n            )\n          , box(\n            title=\"Local vs Foreign\", plotlyOutput(\"barPlots\")\n          )\n          \n          )\n        )\n      \n      , tabItem(\n        tabName = \"economic\",\n        box(\n          title = \"Revenue in USD\", plotlyOutput(\"revPlot\")\n        )\n        \n        ,box (\n          \"here we will have something liking to yahoo finance\"\n        )\n      )\n      \n      , tabItem(\n        tabName = \"maps\"\n        ,h2(\"Map stuff will go here\") \n      )\n      \n    )\n  )\n)\n",
+    "created" : 1477727489564.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2785933840",
+    "id" : "BD00F330",
+    "lastKnownWriteTime" : 1477736978,
+    "last_content_update" : 1477736978744,
+    "path" : "~/Documents/Courses/CERGE-Building-Shiny-Apps/Lecture 3 - Shiny/tourism_dashboard/tourism_dashboard/ui.R",
+    "project_path" : "tourism_dashboard/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
